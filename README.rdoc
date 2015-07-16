@@ -1,6 +1,8 @@
 == README
 
-This is the new_options app. This is in the default application settings. 
+This is the new_options app. This is in the default application settings.
+
+Heroku app name is basicnat
 
 Things you may want to cover:
 
