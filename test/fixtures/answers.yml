@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bodyrails: MyString
+  g: MyString
+  model: MyString
+  Answer: MyString
+  body: MyText
+  questions_id: 
+
+two:
+  bodyrails: MyString
+  g: MyString
+  model: MyString
+  Answer: MyString
+  body: MyText
+  questions_id: 
