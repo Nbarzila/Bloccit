@@ -9,6 +9,10 @@ require 'faker'
 end
 posts = Post.all
 
+p = Post.find_or_create_by(
+  title: "Hello world",
+  body: "Where is the world?"
+)
 # Create Comments
 100.times do
   Comment.create!(
@@ -16,6 +20,11 @@ posts = Post.all
     body: Faker::Lorem.paragraph
   )
 end
+
+Comment.find_or_create_by(
+  post: p,
+  body: "Here"
+)
 
 puts "Seed finished"
 puts "#{Post.count} posts created"
