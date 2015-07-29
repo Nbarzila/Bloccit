@@ -5,8 +5,7 @@
 #  id         :integer          not null, primary key
 #  body       :string
 #  text       :string
-#  post       :string
-#  references :string
+#  post_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
