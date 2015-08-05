@@ -1,0 +1,8 @@
+<h1>All Advertisements</h1>
+<% @advertisements.each do |advertisement| %>
+  <p><%= link_to advertisement.title, advertisement %></p>
+  <p><%= advertisement.copy %></p>
+   <p><%= advertisement.price %></p>
+   <br/>
+
+<% end %>

@@ -1,10 +1,11 @@
 # == Schema Information
 #
-# Table name: comments
+# Table name: advertisements
 #
 #  id         :integer          not null, primary key
-#  body       :text
-#  post_id    :integer
+#  title      :string
+#  copy       :text
+#  price      :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -12,13 +13,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  body: MyString
-  text: MyString
-  post: MyString
-  references: MyString
+  title: MyString
+  copy: MyText
+  price: 1
 
 two:
-  body: MyString
-  text: MyString
-  post: MyString
-  references: MyString
+  title: MyString
+  copy: MyText
+  price: 1
