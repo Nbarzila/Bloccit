@@ -1,10 +1,25 @@
 Rails.application.routes.draw do
 
+  resources:question
+
+  get 'question/index'
+
+  get 'question/edit'
+
+  get 'question/show'
+
+  get 'question/new'
+
   resources :posts
 
   get 'about' => 'welcome#about'
 
+
   root to: 'welcome#index'
+
+
+
+
 
 
   # The priority is based upon order of creation: first created -> highest prioity.
