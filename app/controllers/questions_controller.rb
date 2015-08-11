@@ -1,4 +1,4 @@
-class QuestionController < ApplicationController
+class QuestionsController < ApplicationController
   def index
     @questions = Question.all
   end
@@ -12,7 +12,7 @@ class QuestionController < ApplicationController
   end
 
   def create
-    @question = Question.new(params.require(:Question).permit(:title, :body))
+    @question = Question.new(params.require(:question).permit(:title, :body))
     if @question.save
       flash[:notice] = "Question was saved."
       redirect_to @question
