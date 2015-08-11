@@ -2,10 +2,12 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.all
+    authorize @posts
   end
 
   def show
     @post = Post.find(params[:id])
+    authorize @post
   end
 
   def new
@@ -15,6 +17,7 @@ class PostsController < ApplicationController
   def create
    @post = Post.new(params.require(:post).permit(:title, :body))
    @post.user = current_user
+   authorize @post
    if @post.save
      flash[:notice] = "Post was saved."
      redirect_to @post
@@ -30,6 +33,7 @@ end
 
    def update
      @post = Post.find(params[:id])
+     authorize @post
      if @post.update_attributes(params.require(:post).permit(:title, :body))
        flash[:notice] = "Post was updated."
        redirect_to @post
