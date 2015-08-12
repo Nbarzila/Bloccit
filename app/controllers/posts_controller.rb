@@ -1,14 +1,7 @@
 class PostsController < ApplicationController
-  before_action :flash_attack
+  # before_action :flash_attack
   skip_before_action :flash_attack, only: [:index, :new]
 
-  proctected
-
-
-  def flash_attack
-    flash.for[] = "Thank you"
-  end
-end
 
   def index
     @post = Post.all
