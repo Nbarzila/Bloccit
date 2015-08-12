@@ -11,6 +11,6 @@ class ApplicationController < ActionController::Base
  end
 
  def flash_attack
-   flash["notice"] = "Thank you"
+  #  flash["notice"] = "Thank you"
  end
 end
