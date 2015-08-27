@@ -83,10 +83,25 @@ member.save!
      description:  Faker::Lorem.paragraph
    )
  end
+
  topics = Topic.all
+
+
+
+ 10.times do
+   Summary.create!(
+     post: posts.sample,
+     body: Faker::Lorem.paragraph
+   )
+ end
+ summaries = Post.all
+
+
 
 puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
 puts "#{Question.count} questions created"
 puts "#{User.count} user created"
+puts "#{Topic.count} topic created"
+puts "#{Summary.count} summary created"
