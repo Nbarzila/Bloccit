@@ -4,6 +4,7 @@ class CreateQuestions < ActiveRecord::Migration
       t.string :title
       t.text :body
       t.boolean :resloved
+      t.refernces :question
 
       t.timestamps null: false
     end
