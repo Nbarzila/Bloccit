@@ -4,6 +4,7 @@ require 'faker'
 50.times do
   Post.create!(
     title:  Faker::Lorem.sentence,
+    topic:  topics.sample,
     body:   Faker::Lorem.paragraph
   )
 end
@@ -75,6 +76,14 @@ member = User.new(
 )
 member.skip_confirmation!
 member.save!
+
+15.times do
+   Topic.create!(
+     name:         Faker::Lorem.sentence,
+     description:  Faker::Lorem.paragraph
+   )
+ end
+ topics = Topic.all
 
 puts "Seed finished"
 puts "#{Post.count} posts created"

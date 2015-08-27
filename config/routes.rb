@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
+
   devise_for :users
 
-  resources:question
+  resources :question
 
   get 'question/index'
 
@@ -12,7 +13,9 @@ Rails.application.routes.draw do
 
   get 'question/new'
 
-  resources :posts
+  resources :topics do
+     resources :posts, except: [:index]
+   end
 
   get 'about' => 'welcome#about'
 
