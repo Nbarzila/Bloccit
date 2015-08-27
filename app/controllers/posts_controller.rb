@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
 
     def index
-      @posts = Post.all
-       authorize @post
+      @post = Post.all
+
     end
 
     def new

@@ -34,7 +34,7 @@ end
     body:   Faker::Lorem.paragraph
   )
 end
-questions = Post.all
+questions = Question.all
 
 # Create users
 5.times do
