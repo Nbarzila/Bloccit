@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :posts
   resources :question
-  resource :scan(/pattern/) { |match|  }ummary
+
 
   resources :topics do
      resources :posts, except: [:index]
