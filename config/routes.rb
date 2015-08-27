@@ -4,17 +4,12 @@ Rails.application.routes.draw do
 
 
   devise_for :users
+  resources :users, only: [:update]
 
   resources :posts
   resources :question
 
-  get 'question/index'
 
-  get 'question/edit'
-
-  get 'question/show'
-
-  get 'question/new'
 
   resources :topics do
      resources :posts, except: [:index]
