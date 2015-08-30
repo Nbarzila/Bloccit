@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: summaries
+#
+#  id      :integer          not null, primary key
+#  body    :string
+#  text    :string
+#  post_id :integer
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
