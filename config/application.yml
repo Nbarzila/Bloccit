@@ -11,3 +11,9 @@
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 SENDGRID_PASSWORD: wiqmbkzj5335
 SENDGRID_USERNAME: app38971849@heroku.com
+AWS_ACCESS_KEY_ID: AKIAICN5T2PAPLMS2OZA
+AWS_SECRET_ACCESS_KEY: 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
+development:
+  AWS_BUCKET: bloccit-developmentnat
+production:
+  AWS_BUCKET: bloccit-productionnat

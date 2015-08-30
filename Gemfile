@@ -61,3 +61,6 @@ end
 
 gem 'bootstrap-sass'
 gem 'redcarpet'
+gem 'carrierwave'
+gem "mini_magick"
+gem 'fog'
