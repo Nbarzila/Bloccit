@@ -1,12 +1,13 @@
 class PostPolicy < ApplicationPolicy
 
 
-def new
+  def new
     @post = Post.new
     authorize @post
-end
+  end
 
-def index?
-   true
- end
+  def index?
+    true
+  end
+
 end
