@@ -10,7 +10,13 @@
         submitted <%= time_ago_in_words(post.created_at) %> ago by
         <%= post.user.name %><br>
          <%= post.comments.count %> Comments
-           </small>
+    </small>
+
+    <small>
+      <%= image_tag(@post.user.image_uploader.tiny.url) if @post.user.image_uploader? %>
+      submitted <%= time_ago_in_words(@post.created_at) %> ago by
+      <%= @post.user.name %>
+    </small>
     <% if policy(@post).edit? %>
     <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
     <% end %>
