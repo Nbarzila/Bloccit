@@ -22,6 +22,9 @@
        <div class="form-group">
          <%= f.submit "Save", class: 'btn btn-success' %>
        </div>
+       <div class ="form-group">
+         <%= f.check_box(t.boolean :resolved, checked_value = "1", unchecked_value = "0") %>
+      </div>
      <% end %>
    </div>
  </div>
