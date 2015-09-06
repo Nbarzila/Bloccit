@@ -5,7 +5,6 @@
     <p><%= @summary.body %></p>
   </div>
   <div class="col-md-4">
-    <% if policy(@summary).edit? %>
       <%= link_to "Edit", edit_summary_post_path(@summary, @post), class: 'btn btn-success' %>
     <% end %>
   </div>
