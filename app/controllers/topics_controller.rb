@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   def index
-    @topic = Topic.all
+    @topics = Topic.all
      authorize @topics
   end
 

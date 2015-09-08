@@ -17,15 +17,26 @@ class Post < ActiveRecord::Base
   scope :ordered_by_title, -> { reorder('title ASC')}
   scope :ordered_by_reverse_created_at, -> { reorder('created_at DESC')}
 
- validates :title, length: { minimum: 5 }, presence: true
- validates :body, length: { minimum: 20 }, presence: true
- validates :topic, presence: true
- validates :user, presence: true
-end
+  validates :title, length: { minimum: 5 }, presence: true
+  validates :body, length: { minimum: 20 }, presence: true
+  validates :topic, presence: true
+  validates :user, presence: true
 
- def markdown_to_html(markdown)
-   
-   <%= post.markdown_title %>
-   <%= post.markdown_body %>
- end
+  def markdown_title
+    markdown_to_html(title)
+  end
+
+  def markdown_body
+    markdown_to_html(body)
+  end
+
+
+  private
+
+  def markdown_to_html(markdown)
+    renderer = Redcarpet::Render::HTML.new
+    extensions = {fenced_code_blocks: true}
+    redcarpet = Redcarpet::Markdown.new(renderer, extensions)
+    (redcarpet.render markdown).html_safe
+  end
 end
