@@ -21,7 +21,6 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  role                   :string
-#  avatar                 :string
 #
 
 class User < ActiveRecord::Base
