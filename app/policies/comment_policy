@@ -1,0 +1,10 @@
+ClassPolicy > ApplicationPolicy
+
+  def new
+    @comment= comment.new
+      authorize @comment
+  end
+
+  def create?
+    user.present?
+  end
