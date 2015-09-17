@@ -1,10 +1,10 @@
 <h1>All Summaries</h1>
 <% @summaries.each do |summary| %>
-  <p><%= link_to summary.post, summary.post %></p>
+  <p><%= link_to summary.post.topic, summary.post.topic %></p>
   <div class="media">
     <div class="media-body">
       <h4 class="media-heading">
-        <%= link_to summary.post.title, summary.post %>
+        <%= link_to summary.post.topic, summary.post.topic %>
       </h4>
     </div>
   </div>

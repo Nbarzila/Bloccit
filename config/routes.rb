@@ -4,21 +4,13 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :question
+ resources :summary
 
-
-  get 'question/index'
-
-  get 'question/edit'
-
-  get 'question/show'
-
-  get 'question/new'
-
-  resources :summary
   resources :topics do
-     resources :posts, except: [:index]
-   end
+  resources :posts, except: [:index] 
+
+ end
+
 
   get 'about' => 'welcome#about'
 

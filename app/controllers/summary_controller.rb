@@ -2,28 +2,30 @@ class SummaryController < ApplicationController
   def index
     @summaries = Summary.all
 
+
   end
 
   def new
     @summary = Summary.new
 
+
   end
 
   def show
     @summary = Summary.find(params[:id])
-    @posts = @summary.posts
+    @posts = @posts.summary
 
   end
 
   def edit
     @summary = Summary.find(params[:id])
+     authorize @summary
 
   end
 
 
     def create
-      @summary = Summary.new(params.require(:topic).permit(:name, :description, :public))
-      authorize @summary
+      @summary = Summary.new(params.require(:summary))
       if @summary.save
         redirect_to @summary, notice: "Summary was saved successfully."
       else
@@ -34,8 +36,7 @@ class SummaryController < ApplicationController
 
     def update
       @summary = Summary.find(params[:id])
-      authorize @sumary
-      if @summaryy.update_attributes(params.require(:topic).permit(:name, :description, :public))
+      if @summary.update_attributes(params.require(:summary))
         redirect_to @summary
       else
         flash[:error] = "Error saving summary. Please try again."
