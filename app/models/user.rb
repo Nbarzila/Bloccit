@@ -32,13 +32,19 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :posts
-   mount_uploader :avatar, AvatarUploader
+  has_many :comments
+
+  mount_uploader :avatar, AvatarUploader
 
   def admin?
    role == 'admin'
- end
+  end
 
  def moderator?
    role == 'moderator'
+ end
+
+ def current_user?
+  role == 'current_user'
  end
 end
