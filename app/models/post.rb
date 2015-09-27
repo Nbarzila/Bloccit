@@ -14,7 +14,6 @@ class Post < ActiveRecord::Base
   has_many :comments
   mount_uploader :image, ImageUploaderUploader
   belongs_to :user
-  mount_uploader :avatar, AvatarUploader
   belongs_to :topic
   default_scope { order('created_at DESC') }
   scope :ordered_by_title, -> { reorder('title ASC')}
