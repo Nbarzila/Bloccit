@@ -1,5 +1,13 @@
 require 'faker'
 
+# Create Topics
+15.times do
+   Topic.create!(
+     name:         Faker::Lorem.sentence,
+     description:  Faker::Lorem.paragraph
+   )
+ end
+ topics = Topic.all
 # Create Posts
 50.times do
   Post.create!(
@@ -18,23 +26,6 @@ posts = Post.all
     body: Faker::Lorem.paragraph
   )
 end
-
-10.times do
-  Advertisement.create!(
-    title: Faker::Lorem.sentence,
-    copy: Faker::Lorem.paragraph,
-    price: Faker::Commerce.price
-  )
-end
-
-# Create Questions
-50.times do
-  Question.create!(
-    title:  Faker::Lorem.sentence,
-    body:   Faker::Lorem.paragraph
-  )
-end
-questions = Question.all
 
 # Create users
 5.times do
@@ -77,16 +68,9 @@ member = User.new(
 member.skip_confirmation!
 member.save!
 
-15.times do
-   Topic.create!(
-     name:         Faker::Lorem.sentence,
-     description:  Faker::Lorem.paragraph
-   )
- end
- topics = Topic.all
+
 
 puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
-puts "#{Question.count} questions created"
 puts "#{User.count} user created"
