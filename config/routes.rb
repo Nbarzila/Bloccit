@@ -10,13 +10,7 @@ Rails.application.routes.draw do
   resources :comments, only: [:create]
 
   end
-
-
-
-
-  resources :questions
-
-  end
+ end
 
 
   get 'about' => 'welcome#about'
