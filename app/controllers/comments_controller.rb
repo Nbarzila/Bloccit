@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
 
   def create
-    @topic = Topic.find(params[:topic_id])
     @post =@topic.posts.find(params[:post_id])
     @comment = Comment.find(params[:comment_id])
     @comment = @post.comments.new(comment_params)
@@ -14,7 +13,6 @@ class CommentsController < ApplicationController
     end
   end
     def destroy
-   @topic = Topic.find(params[:topic_id])
    @post = @topic.posts.find(params[:post_id])
    @comment = @post.comments.find(params[:id])
 
