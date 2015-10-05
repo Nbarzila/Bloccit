@@ -13,12 +13,12 @@ class CommentsController < ApplicationController
       render :new
     end
   end
-    def destroy
-   @topic = Topic.find(params[:topic_id])
-   @post = @topic.posts.find(params[:post_id])
-   @comment = @post.comments.find(params[:id])
+  def destroy
+    @topic = Topic.find(params[:topic_id])
+    @post = @topic.posts.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
 
-   authorize @comment
+      authorize @comment
    if @comment.destroy
      flash[:notice] = "Comment was removed."
      redirect_to [@topic, @post]
@@ -27,14 +27,12 @@ class CommentsController < ApplicationController
      redirect_to [@topic, @post]
    end
   end
-  end
+end
 
   private
 
   def comment_params
-
     params.require(:comment).permit(:body)
-
   end
-
+  
 end
