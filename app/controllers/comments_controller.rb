@@ -7,10 +7,9 @@ class CommentsController < ApplicationController
     @comment = @post.comments.new(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
-      redirect_to [@post, @comment], notice: "Comment was saved successfully."
+      redirect_to [@topic, @post], notice: "Comment was saved successfully."
     else
-      flash[:error] = "Error creating comment. Please try again."
-      render :new
+      redirect_to [@topic, @post], notice: "Error creating comment. Please try again."
     end
   end
 
