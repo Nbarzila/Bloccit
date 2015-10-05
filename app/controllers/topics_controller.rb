@@ -52,7 +52,8 @@ class TopicsController < ApplicationController
     else
       flash[:error] ="Topic could not be deleted"
       render :show
-
+  end
+end
 
   private
 
