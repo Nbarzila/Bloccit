@@ -28,7 +28,8 @@ users = User.all
   Post.create!(
     title:  Faker::Lorem.sentence,
     topic:  topics.sample,
-    body:   Faker::Lorem.paragraph
+    body:   Faker::Lorem.paragraph,
+    user:   users.sample
   )
 end
 posts = Post.all

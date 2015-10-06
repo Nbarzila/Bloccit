@@ -1,7 +1,7 @@
 class TopicsController < ApplicationController
   def index
-    @topic = Topic.all
-     authorize @topics
+    @topics = Topic.all
+    authorize @topics
   end
 
   def new
