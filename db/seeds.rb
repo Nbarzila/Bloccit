@@ -2,7 +2,18 @@ require 'faker'
 
 
 
-# create topics
+5.times do
+  user = User.new(
+    name:     Faker::Name.name,
+    email:    Faker::Internet.email,
+    password: Faker::Lorem.characters(10)
+  )
+  user.skip_confirmation!
+  user.save!
+end
+users = User.all
+
+ # create topics
 
 15.times do
    Topic.create!(
@@ -12,26 +23,15 @@ require 'faker'
  end
  topics = Topic.all
 
- # create Users
- 5.times do
-   user = User.new(
-     name:     Faker::Name.name,
-     email:    Faker::Internet.email,
-     password: Faker::Lorem.characters(10)
-   )
-   user.skip_confirmation!
-   user.save!
- end
-
- users = User.all
-
 # Create Posts
 50.times do
   Post.create!(
     topic:  topics.sample,
+
     user:   users.sample,
     title:  Faker::Lorem.sentence,
     body:   Faker::Lorem.paragraph
+
   )
 end
 posts = Post.all

@@ -2,7 +2,7 @@ class CommentPolicy < ApplicationPolicy
 
   def new
     @comment = Comment.post.new
-    @authorize @comment
+    authorize @comment
   end
 
   def create?
