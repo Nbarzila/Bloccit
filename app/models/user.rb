@@ -33,7 +33,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :posts
   has_many :comments
-
+  has_many  :votes, dependent: :destroy
+  
   mount_uploader :avatar, AvatarUploader
 
   def admin?
