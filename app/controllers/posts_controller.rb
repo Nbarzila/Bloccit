@@ -16,6 +16,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comments = @post.comments
     @comment = @post.comments.build
+    @comment = Comment.new
     authorize @post
   end
 
@@ -39,6 +40,7 @@ class PostsController < ApplicationController
   end
 
   def update
+    @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
     authorize @post
     if @post.update_attributes(post_params)
