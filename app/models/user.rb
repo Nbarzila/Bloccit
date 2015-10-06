@@ -21,6 +21,7 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  role                   :string
+#  avatar                 :string
 #
 
 class User < ActiveRecord::Base
@@ -33,7 +34,6 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :posts
   has_many :comments
-
   mount_uploader :avatar, AvatarUploader
 
   def admin?
