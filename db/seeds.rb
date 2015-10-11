@@ -41,17 +41,6 @@ posts = Post.all
 end
 
 
-# Create Questions
-50.times do
-  Question.create!(
-    title:  Faker::Lorem.sentence,
-    body:   Faker::Lorem.paragraph
-  )
-end
-questions = Question.all
-
-
-
 # Create an admin user
 admin = User.new(
   name:     'Admin User',
@@ -86,5 +75,4 @@ member.save!
 puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
-puts "#{Question.count} questions created"
 puts "#{User.count} user created"
