@@ -14,9 +14,8 @@
 <div class="row">
   <h2>Comments</h2>
   <div class='col-md-12'>
+    <%= authorize @comment %>
     <%= render @comments %>
     <%= render 'comments/form', topic: @topic, comment: @comment, post: @post %>
-    <%= authorize @comment %>
-
   </div>
 </div>
