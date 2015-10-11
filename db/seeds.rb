@@ -28,6 +28,7 @@ users = User.all
     user:   users.sample,
     title:  Faker::Lorem.sentence,
     body:   Faker::Lorem.paragraph
+  )
 end
 posts = Post.all
 
@@ -70,7 +71,7 @@ member = User.new(
 member.skip_confirmation!
 member.save!
 
-
+    
 
 puts "Seed finished"
 puts "#{Post.count} posts created"
