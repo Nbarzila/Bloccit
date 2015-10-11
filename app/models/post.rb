@@ -12,13 +12,18 @@
 #
 
 class Post < ActiveRecord::Base
+
   has_many :comments, dependent: :destroy
   has_many :votes, dependent: :destroy
+
+  mount_uploader :image, ImageUploaderUploader
+
   belongs_to :user
   belongs_to :topic
   default_scope { order('rank DESC') }
   scope :ordered_by_title, -> { reorder('title ASC')}
   scope :ordered_by_reverse_created_at, -> { reorder('created_at DESC')}
+
 
   validates :title, length: { minimum: 5 }, presence: true
   validates :body, length: { minimum: 20 }, presence: true
