@@ -1,5 +1,19 @@
 require 'faker'
 
+# create user
+
+5.times do
+  user = User.new(
+    name:     Faker::Name.name,
+    email:    Faker::Internet.email,
+    password: Faker::Lorem.characters(10)
+  )
+  user.skip_confirmation!
+  user.save!
+end
+users = User.all
+
+
 # create topics
 
 100.times do
@@ -39,17 +53,7 @@ end
 end
 questions = Question.all
 
-# create user
-5.times do
-  user = User.new(
-    name:     Faker::Name.name,
-    email:    Faker::Internet.email,
-    password: Faker::Lorem.characters(10)
-  )
-  user.skip_confirmation!
-  user.save!
-end
-users = User.all
+
 
 # Create an admin user
 admin = User.new(
