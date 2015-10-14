@@ -20,7 +20,7 @@ private
   end
 
 
-  def update_vote(new_value)
+  def update_vote!(new_value)
     if @vote
       authorize @vote, :update?
       @vote.update_attribute(:value, new_value)
@@ -29,6 +29,5 @@ private
       authorize @vote, :create?
       @vote.save
     end
-  redirect_to :back
- end
-end   
+  end
+end
