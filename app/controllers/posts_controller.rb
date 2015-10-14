@@ -1,8 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @post = Post.all
-
+    @posts = Post.all
   end
 
   def new
@@ -14,8 +13,8 @@ class PostsController < ApplicationController
   def show
     @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
-    @comments = @post.comments
     @comment = @post.comments.build
+    @comment = Comment.new
     authorize @post
   end
 
@@ -39,10 +38,11 @@ class PostsController < ApplicationController
   end
 
   def update
+    @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
     authorize @post
     if @post.update_attributes(post_params)
-      redirect_to [@post.topic,@post]
+      redirect_to [@post.topic, @post]
     else
       flash[:error] = "Error saving post. Please try again."
       render :edit
@@ -66,6 +66,6 @@ end
   private
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :image)
   end
 end
