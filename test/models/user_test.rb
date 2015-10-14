@@ -21,6 +21,7 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  role                   :string
+#  avatar                 :string
 #
 
 require 'test_helper'
