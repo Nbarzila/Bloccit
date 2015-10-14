@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
      redirect_to [@post.topic, @post]
    else
      flash[:error] = "Comment could not be deleted. Try again."
-     redirect_to [@post.topic, @post]
+     redirect_to [@post, @comment]
    end
   end
 end
