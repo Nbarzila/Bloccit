@@ -2,7 +2,8 @@ class PostPolicy < ApplicationPolicy
 
 
   def new
-    create?
+    @post = Post.new
+    authorize @post
   end
 
   def index?
