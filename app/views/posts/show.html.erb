@@ -8,6 +8,7 @@
        <%= @post.user.name %>
     </small>
     <p><%= markdown_to_html @post.body %></p>
+
     <br>
       <h4> COMMENTS </h4>
       <%= render @comments %>
