@@ -14,7 +14,7 @@
       <%= render @comments %>
       <% if policy(@post).new? %>
     </br>
-      <%= render :template => "/comments/_form.html.erb", locals: { post: @post} %>
+      <%= render :template => "/comments/_form.html.erb", :locals => { comment: @comment, post: @post} %>
   </div>
 
 

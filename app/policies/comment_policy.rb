@@ -2,7 +2,7 @@ class CommentPolicy < ApplicationPolicy
 
 
   def new
-    user.present?
+    user.present? && create?
   end
 
 
