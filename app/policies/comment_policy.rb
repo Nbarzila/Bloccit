@@ -1,12 +1,15 @@
 class CommentPolicy < ApplicationPolicy
 
-  def new
-    # @comment = Comment.new
-      # authorize @comment
-    user.present?
+  def create?
+   user.present?
   end
 
-  def create?
-    user.present?
+  def new
+    create?
+  end
+
+
+  def destroy?
+    user.present? && (record.user == user || user.admin? || user.moderator?)
   end
 end
