@@ -1,14 +1,7 @@
 class CommentsController < ApplicationController
 
-  def new
-     @post = Post.find(params[:post_id])
-     @comment = Comment.new
-     authorize @comment
-  end
-
   def create
     @post = Post.find(params[:post_id])
-    @comment = Comment.find(params[:comment_id])
     @comment = @post.comments.new(comment_params)
     @comment.user_id = current_user.id
       authorize @comment
@@ -18,6 +11,14 @@ class CommentsController < ApplicationController
       redirect_to [@post, @comment], notice: "Error creating comment. Please try again."
     end
   end
+
+
+  def new
+     @post = Post.find(params[:post_id])
+     @comment = Comment.new
+        authorize @comment
+  end
+
 
   def destroy
     @post = Postsfind(params[:post_id])

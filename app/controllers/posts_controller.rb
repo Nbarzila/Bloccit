@@ -16,7 +16,6 @@ class PostsController < ApplicationController
     @comment = @post.comments.build
     @comment = Comment.new
     authorize @post
-    # authorize @comment
   end
 
   def edit
