@@ -14,7 +14,13 @@ class VotesController < ApplicationController
 
 private
 
-  def update_vote (new_value)
+  def load_post_and_vote
+    @post = Post.find(params[:post_id])
+    @vote = @post.votes.where(user_id: current_user.id).first
+  end
+
+
+  def update_vote(new_value)
     if @vote
       authorize @vote, :update?
       @vote.update_attribute(:value, new_value)
@@ -25,9 +31,4 @@ private
     end
   redirect_to :back
  end
-
-  def load_post_and_vote
-    @post = Post.find(params[:post_id])
-    @vote = @post.votes.where(user_id: current_user.id).first
-  end
-end
+end   
