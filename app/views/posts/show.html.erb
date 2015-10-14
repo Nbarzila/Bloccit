@@ -15,7 +15,7 @@
       <h4> Add a comment </h4>
       <% if policy(@comments).create? %>
     </br>
-      <%= render template: => "comments/comment.html.erb", :locals => {comment: @comment, post: @post} %>
+      <%= render :template => "/comments/_form.html.erb", :locals => { comment: @comment, post: @post} %>
   </div>
 
 
