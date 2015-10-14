@@ -1,8 +1,7 @@
 class CommentPolicy < ApplicationPolicy
 
   def new
-    @comment = Comment.post.new
-    authorize @comment
+    user.present?
   end
 
   def create?

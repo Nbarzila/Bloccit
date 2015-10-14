@@ -13,7 +13,7 @@
       <%= render @comments %>
       <% if policy(@comment).create? %>
     <br>
-      <%= render :template => "/comments/_form.html.erb", locals: { post: @post}
+      <%= render :template => "/comments/_form.html.erb", locals: { post: @post} %>
   </div>
   <div class="col-md-4">
     <% if policy(@post).edit? %>
@@ -32,3 +32,6 @@
     </div>
   </div>
 </div>
+
+
+  <% end %>

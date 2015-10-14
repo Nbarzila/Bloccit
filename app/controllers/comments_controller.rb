@@ -1,5 +1,10 @@
 class CommentsController < ApplicationController
 
+  def new
+     @post = Post.find(params[:post_id])
+     @comment = Comment.new
+     authorize @comment
+  end
 
   def create
     @post = Post.find(params[:post_id])
@@ -25,14 +30,6 @@ class CommentsController < ApplicationController
      flash[:error] = "Comment could not be deleted. Try again."
      redirect_to [@post.topic, @post]
    end
-    authorize @comment
-    if @comment.destroy
-      flash[:notice] = "Comment was removed."
-      redirect_to [@topic, @post]
-    else
-      flash[:error] = "Comment could not be deleted. Try again."
-      redirect_to [@topic, @post]
-    end
   end
 end
 
