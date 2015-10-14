@@ -42,7 +42,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     authorize @post
     if @post.update_attributes(post_params)
-      redirect_to [@topic, @post]
+      redirect_to [@post.topic, @post]
     else
       flash[:error] = "Error saving post. Please try again."
       render :edit

@@ -29,8 +29,8 @@ users = User.all
 # Create Posts
 50.times do
   post = Post.create!(
-    topic:  topics.sample,
     user:   users.sample,
+    topic:  topics.sample,
     title:  Faker::Lorem.sentence,
     body:   Faker::Lorem.paragraph
   )
@@ -84,3 +84,4 @@ puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
 puts "#{User.count} user created"
+puts "#{Topic.count} topics created"
