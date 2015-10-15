@@ -11,7 +11,6 @@
 #
 
 
-
   class Post < ActiveRecord::Base
 
     has_many :comments, dependent: :destroy
@@ -51,9 +50,16 @@
    user.votes.create(value: 1, post: self)
   end
 
-   def markdown_title
+  def markdown_title
      markdown_to_html(title)
-   end
+  end
+
+   def save_with_initial_vote
+   ActiveRecord::Base.transaction do
+    post.save
+    post.create_vote
+    end
+  end
 
    def markdown_body
      markdown_to_html(body)
