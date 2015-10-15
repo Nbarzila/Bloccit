@@ -29,7 +29,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     @post.topic = @topic
     authorize @post
-    if save_with_initial_vote
+    if @post.save_with_initial_vote
       redirect_to [@topic, @post], notice: "Post was saved successfully."
     else
       flash[:error] = "Error creating post. Please try again."

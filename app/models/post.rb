@@ -11,29 +11,29 @@
 #
 
 
-  class Post < ActiveRecord::Base
+class Post < ActiveRecord::Base
 
-    has_many :comments, dependent: :destroy
-    has_many :votes, dependent: :destroy
-    mount_uploader :image, ImageUploaderUploader
-    belongs_to :user
-    belongs_to :topic
-    default_scope { order('rank DESC') }
-    #scope :ordered_by_title, -> { reorder('title ASC')}
-    #scope :ordered_by_reverse_created_at, -> { reorder('created_at DESC')}
+  has_many :comments, dependent: :destroy
+  has_many :votes, dependent: :destroy
+  mount_uploader :image, ImageUploaderUploader
+  belongs_to :user
+  belongs_to :topic
+  default_scope { order('rank DESC') }
+  #scope :ordered_by_title, -> { reorder('title ASC')}
+  #scope :ordered_by_reverse_created_at, -> { reorder('created_at DESC')}
 
-    validates :title, length: { minimum: 5 }, presence: true
-    validates :body, length: { minimum: 20 }, presence: true
+  validates :title, length: { minimum: 5 }, presence: true
+  validates :body, length: { minimum: 20 }, presence: true
 
-    validates :topic, presence: true
-    validates :user, presence: true
+  validates :topic, presence: true
+  validates :user, presence: true
 
   def up_votes
-      votes.where(value: 1).count
+    votes.where(value: 1).count
   end
 
   def down_votes
-      votes.where(value: -1).count
+    votes.where(value: -1).count
   end
 
   def points
@@ -47,23 +47,23 @@
   end
 
   def create_vote
-   user.votes.create(value: 1, post: self)
+    user.votes.create(value: 1, post: self)
   end
 
   def markdown_title
-     markdown_to_html(title)
+    markdown_to_html(title)
   end
 
-   def save_with_initial_vote
-   ActiveRecord::Base.transaction do
-    post.save
-    post.create_vote
+  def save_with_initial_vote
+    ActiveRecord::Base.transaction do
+      self.save
+      self.create_vote
     end
   end
 
-   def markdown_body
-     markdown_to_html(body)
-   end
+  def markdown_body
+    markdown_to_html(body)
+  end
 
 
   private
