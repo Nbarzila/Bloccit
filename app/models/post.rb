@@ -16,6 +16,7 @@
 
     has_many :comments, dependent: :destroy
     has_many :votes, dependent: :destroy
+    has_many :favorites, dependent: :destroy 
     mount_uploader :image, ImageUploaderUploader
     belongs_to :user
     belongs_to :topic
