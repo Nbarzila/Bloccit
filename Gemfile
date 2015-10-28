@@ -15,6 +15,7 @@ group :production do
    gem 'pry-rails'
    gem 'binding_of_caller'
    gem 'better_errors'
+   gem 'capybara'
  end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
