@@ -16,9 +16,10 @@ class FavoritesController < ApplicationController
 
   def destroy
     @post = Post.find(params[:post_id])
-    favorite =current_user.favorites.find(params[:id])
-    authorize favorite
-    if favorite.destroy
+    @favorite =current_user.favorites.find(params[:id])
+    authorize @favorite
+    puts @favorite
+    if @favorite.destroy
       flash[:notice] = "Sucess"
       redirect_to [@post.topic, @post]
       # Flash success and redirect to @post
