@@ -16,11 +16,11 @@
 
     has_many :comments, dependent: :destroy
     has_many :votes, dependent: :destroy
-    has_many :favorites, dependent: :destroy 
+    has_many :favorites, dependent: :destroy
     mount_uploader :image, ImageUploaderUploader
     belongs_to :user
     belongs_to :topic
-    default_scope { order('rank DESC') }
+    scope :visible_to, -> (user) { user ? all : joins(:topic).where('topics.public' => true) }
     #scope :ordered_by_title, -> { reorder('title ASC')}
     #scope :ordered_by_reverse_created_at, -> { reorder('created_at DESC')}
 
