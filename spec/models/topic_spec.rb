@@ -2,11 +2,13 @@ require 'rails_helper'
 
 describe Topic do
 
+  include TestFactories
+
   describe "scopes" do
 
     before do
-      @public_topic = Topic.create # default is public
-      @private_topic = Topic.create(public: false)
+      @public_topic = public_topic
+      @private_topic = private_topic
     end
 
     describe "publicly_viewable" do

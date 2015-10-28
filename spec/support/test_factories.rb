@@ -10,6 +10,24 @@ module TestFactories
   Post.create(post_options)
   end
 
+  def public_topic(options={})
+    topic_options = {
+      name: 'Topic title',
+      description: 'Topic descriptions must be pretty long.',
+      public: true
+  }.merge(options)
+  Topic.create(topic_options)
+  end
+
+  def private_topic(options={})
+  topic_options = {
+    name: 'Topic title',
+    description: 'Topic descriptions must be pretty long.',
+    public: false
+  }.merge(options)
+  Topic.create(topic_options)
+  end
+
  def authenticated_user(options={})
    user_options = {email: "email#{rand}@fake.com", password: 'password'}.merge(options)
    user = User.new(user_options)
