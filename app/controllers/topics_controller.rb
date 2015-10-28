@@ -8,7 +8,6 @@ class TopicsController < ApplicationController
 
   def new
     @topic = Topic.new
-    @topic = Topic.find(params[:id])
      authorize @topic
   end
 
