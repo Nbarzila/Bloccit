@@ -11,7 +11,7 @@
 
     <br>
       <h4> COMMENTS </h4>
-      <%= render @comments %>
+      <%= render partial: 'comments/comment', collection: @comments %>
       <% if policy(@post).new? %>
     </br>
       <%= render :template => "/comments/_form.html.erb", :locals => { comment: @comment, post: @post} %>
