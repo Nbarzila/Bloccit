@@ -69,3 +69,4 @@ gem 'redcarpet'
 gem 'carrierwave'
 gem "mini_magick"
 gem 'fog'
+gem 'factory_girl_rails', '~> 4.0'
