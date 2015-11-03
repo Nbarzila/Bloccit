@@ -1,8 +1,10 @@
 FactoryGirl.define do
-  factory :post do
-    title "Post Title"
-    body "Post bodies must be pretty long."
+  factory :comment do
+    body "This is a new comment."
     user
-    topic { Topic.create(name: 'Topic name') }
+    post
+    after(:build) do |comment|
+      comment.class.skip_callback(:create, :after, :send_favorite_emails)
+    end
   end
 end
