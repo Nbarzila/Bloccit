@@ -14,12 +14,14 @@
     <div class='js-comments'>
       <%= render partial: 'comments/comment', collection: @comments %>
     </div>
+    <% if policy(@comment).new? %>
     <div class='new-comment'>
-      <%= render 'comments/form' %>
-      </div
-      <% if policy(@post).new? %>
+      <%= render :template => "/comments/_form.html.erb", :locals => { comment: @comment, post: @post} %>
+    </div>
+    <% end %>
+
     </br>
-    <%= render :template => "/comments/_form.html.erb", :locals => { comment: @comment, post: @post} %>
+
   </div>
 
 
@@ -41,5 +43,3 @@
 <%= render partial: 'favorites/favorite', locals: { post: @post } %>
 </div>
 </div>
-
-<% end %>
