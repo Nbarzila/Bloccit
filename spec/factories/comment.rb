@@ -1,8 +1,8 @@
 FactoryGirl.define do
-  factory :post do
-    title "Post Title"
+  factory :comment do
     body "Post bodies must be pretty long."
+    text "Post bodies must be pretty long."
     user
-    topic { Topic.create(name: 'Topic name') }
+    post
   end
 end
